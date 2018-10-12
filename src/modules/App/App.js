@@ -5,7 +5,7 @@ import './App.css';
 const App = () => (
   <Router>
     <div className="App">
-      <p>Nutri CMS Starter</p>
+      <p>Nutri APP Strater</p>
     </div>
   </Router>
 );
