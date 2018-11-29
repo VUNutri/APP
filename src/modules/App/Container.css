@@ -191,3 +191,7 @@ a.article:hover {
 {
   background-color: #6d7fcc;
 }
+/* CARD STYLE ------------------- */
+.card{
+    margin-bottom: 20px;
+}
