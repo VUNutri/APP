@@ -41,11 +41,12 @@ class Container extends React.Component {
                                     </li>
                                 </ul>
                             </div>
+
                         </div>
+
                     </nav>
 
-
-                    Dabar reikia sugalvoti ka cia inpisti
+                    Kazkas
 
                     
                     </div>

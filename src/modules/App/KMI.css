@@ -1,0 +1,82 @@
+.modal-header {
+    padding: 2px 16px;
+    background-color: #7386D5;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    border-radius: 12px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #7386D5;
+    color: white;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+} 
+
+.close {
+    background-color: rgb(148, 211, 240);
+    padding: 10px 24px;
+    border-radius: 12px;
+    border: blue;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button1 {
+    background-color: rgb(148, 211, 240);
+    color: black; 
+    border: blue;
+}
+
+.button1:hover {
+    background-color: rgb(37, 172, 235);
+    color: white;
+}
+
+.myBtn {
+    background-color: #7386D5;
+    color: white;
+    width: 7%;
+    height: 35px;
+    border-radius: 12px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button2 {
+    background-color: #7386D5;
+    color: white; 
+    border: #7386D5;
+}
+
+.button2:hover {
+    background-color: rgb(37, 172, 235);
+    color: #7386D5;
+}
