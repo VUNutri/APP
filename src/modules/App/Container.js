@@ -9,6 +9,7 @@ import meatLogo from '../img/meat.png';
 import sweetsLogo from '../img/sweet.png';
 import snacksLogo from '../img/snacks.png';
 import KMI from './KMI';
+import Blocker from './Blocker';
 
 class Container extends React.Component {
   handleClick() {
@@ -22,6 +23,8 @@ class Container extends React.Component {
       <Router>
         <div id="content">
         <KMI />
+        <br/>
+        <Blocker /><br/>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
               <button

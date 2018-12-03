@@ -1,0 +1,43 @@
+/*ivedimo laukas*/
+.ReactTags__tagInputField {
+    color: black;
+    background-color: #9BBDE3;
+    border: none;
+    border-radius: 12px;
+    width: 35% !important; 
+    height: 25px !important;
+    text-align: center;
+    font-size: 1vw;
+    padding: 4px;
+}
+/*ivesti tagai*/
+.ReactTags__selected .ReactTags__tag {
+    background-color: #7386D5;
+    color: white;
+    text-align: center;
+    font-size: 1vw !important;
+    width: max-content;
+    height: 25px;
+    padding: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    display: inline-block;
+    border-spacing: inherit;
+}
+ /* uždarymo mygtukas*/
+.ReactTags__selected .ReactTags__remove {
+    color: white;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#table {
+    width: 30% !important;
+    border-collapse: collapse;
+    border-radius: 20px;
+    border-style: hidden; /* hide standard table (collapsed) border */
+    box-shadow: 0 0 1px 1px rgb(17, 45, 68);
+}
