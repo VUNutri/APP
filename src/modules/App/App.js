@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from './Navbar';
 import Container from './Container';
 import recipePage from './recipePage';
+import MenuList from './MenuList';
 
 const App = () => (
   
@@ -13,6 +14,7 @@ const App = () => (
       <div>
         <Route path="/home" component={Container}/>
         <Route path="/recipes" component={recipePage}/>
+        <Route path="/menu" component={MenuList}/>
       </div>
     </Router>
   </div>
