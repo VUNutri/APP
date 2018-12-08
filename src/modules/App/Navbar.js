@@ -18,7 +18,10 @@ class Navbar extends React.Component {
           </div>
           <ul className="list-unstyled components">
             <p>MENIU</p>
-            <li className="active">
+            <li>
+              <a href="/home">PAGRINDINIS</a>
+            </li>
+            <li>
               <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">PATIEKALAI</a>
               <ul className="collapse list-unstyled" id="homeSubmenu">
                 <li>
@@ -45,7 +48,7 @@ class Navbar extends React.Component {
               <a href="#">APIE NUTRI</a>
             </li>
             <li>
-              <a href="#">RECEPTAI</a>
+              <a href="/recipes">RECEPTAI</a>
             </li>
             <li>
               <a href="#">KONTAKTAI</a>
