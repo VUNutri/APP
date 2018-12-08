@@ -120,7 +120,7 @@ class KMI extends React.Component {
                       value="male" 
                       checked={this.state.gender === 'male'} 
                       onChange={this.genderChange} 
-                      name="gender" 
+                      name="gender"
                     /> 
                     Vyras
                     <input 

@@ -1,6 +1,7 @@
 #myModal
 {
-    margin-top: 10rem;
+    margin-top: 5rem;
+    padding: 0 !important;
 }
 h2 {
     font-family: sans-serif;
@@ -15,10 +16,6 @@ p {
     color: rgb(102, 101, 101);
 }
 
-input {
-    width: 15%;
-    height: 1.3em;
-}
 
 .modal-header {
     padding: 2px 7.1vw;
@@ -65,7 +62,6 @@ input {
 .modalOpen {
     background-color: #7386D5;
     color: white;
-    width: 7%;
     height: 35px;
     border-radius: 12px;
     text-align: center;

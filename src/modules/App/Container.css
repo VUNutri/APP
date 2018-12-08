@@ -1,11 +1,17 @@
-/*
-    DEMO STYLE
-*/
-
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
+}
+
+.navToggleBtn{
+    background-color: #6d7fcc;
+    color:#fff;
+}
+
+.navToggleBtn:hover{
+    background-color: #5f70b7;
+    color: #fff;
 }
 
 p {
