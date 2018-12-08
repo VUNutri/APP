@@ -10,6 +10,7 @@ import sweetsLogo from '../img/sweet.png';
 import snacksLogo from '../img/snacks.png';
 import KMI from './KMI';
 import Blocker from './Blocker';
+import DragDrop from './DragDrop';
 
 class Container extends React.Component {
   handleClick() {
@@ -142,6 +143,7 @@ class Container extends React.Component {
               </div>
             </div>
           </div>
+          <DragDrop />
         </div>
       </Router>
     );
