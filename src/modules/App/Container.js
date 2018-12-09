@@ -8,8 +8,6 @@ import gurmanLogo from '../img/gurman.png';
 import meatLogo from '../img/meat.png';
 import sweetsLogo from '../img/sweet.png';
 import snacksLogo from '../img/snacks.png';
-import KMI from './KMI';
-import Blocker from './Blocker';
 
 class Container extends React.Component {
   handleClick() {
@@ -22,62 +20,16 @@ class Container extends React.Component {
     return (
       <Router>
         <div id="content">
-        <KMI />
-        <br/>
-        <Blocker /><br/>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
               <button
                 type="button"
                 id="sidebarCollapse"
-                className="btn btn-info"
+                className="btn navToggleBtn"
                 onClick={this.handleClick}
               >
-                <span
-                  className="glyphicon glyphicon-search"
-                  aria-hidden="true"
-                />
-                <span>Meniu</span>
+                <i className="material-icons">vertical_split</i>
               </button>
-              <button
-                className="btn btn-dark d-inline-block d-lg-none ml-auto"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <i className="fas fa-align-justify" />
-              </button>
-
-              <div
-                className="collapse navbar-collapse"
-                id="navbarSupportedContent"
-              >
-                <ul className="nav navbar-nav ml-auto">
-                  <li className="nav-item active">
-                    <a className="nav-link" href="#">
-                      Kazkas
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Kazkas
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Kazkas
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Kazkas
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
           </nav>
           <div className="card">
@@ -87,11 +39,11 @@ class Container extends React.Component {
             <div className="card-body">
               <h5 className="card-title">VU NUTRI - KĄ MES SIŪLOME?</h5>
               <p className="card-text">Sudarykite savo savaitės patiekalų pasirinkimą ir mes visą kitą atliksime už Jus!</p>
-              <a href="#" className="btn btn-primary">Sužinoti daugiau</a>
+              <a href="#" className="btn navToggleBtn">Sužinoti daugiau</a>
             </div>
           </div>
           <div className="row">
-            <div className="col-4">
+            <div className="col-sm-12 col-md-4">
               <div className="card">
                 <img className="card-img-top" src={veganLogo} alt="Vegan"/>
                 <div className="card-body">
@@ -99,7 +51,7 @@ class Container extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="col-4">
+            <div className="col-sm-12 col-md-4">
               <div className="card">
                 <img className="card-img-top" src={vegetarianLogo} alt="Vegetarian"/>
                 <div className="card-body">
@@ -107,7 +59,7 @@ class Container extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="col-4">
+            <div className="col-sm-12 col-md-4">
               <div className="card">
                 <img className="card-img-top" src={gurmanLogo} alt="Gurman"/>
                 <div className="card-body">
@@ -117,7 +69,7 @@ class Container extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-sm-12 col-md-4">
               <div className="card">
                 <img className="card-img-top" src={sweetsLogo} alt="Sweets"/>
                 <div className="card-body">
@@ -125,7 +77,7 @@ class Container extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="col">
+            <div className="col-sm-12 col-md-4">
               <div className="card">
                 <img className="card-img-top" src={meatLogo} alt="Meat"/>
                 <div className="card-body">
@@ -133,7 +85,7 @@ class Container extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="col">
+            <div className="col-sm-12 col-md-4">
               <div className="card">
                 <img className="card-img-top" src={snacksLogo} alt="Snacks"/>
                 <div className="card-body">

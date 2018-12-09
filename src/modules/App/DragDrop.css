@@ -1,0 +1,14 @@
+.sort-ul {
+  list-style: none;
+  background-color: #fafafa;
+}
+
+.sort-item {
+  background-color: white;
+  text-align: left;
+  padding: 1rem .8rem;
+}
+
+.sort-item:hover {
+  cursor: pointer;
+}

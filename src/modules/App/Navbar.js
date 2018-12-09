@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../img/logo.png';
+import recipePage from './recipePage';
+import Container from './Container';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -17,8 +19,10 @@ class Navbar extends React.Component {
             <img alt="Nutri logo" src={logo} className="navLogo"/>
           </div>
           <ul className="list-unstyled components">
-            <p>MENIU</p>
-            <li className="active">
+            <li>
+              <a href="/">PAGRINDINIS</a>
+            </li>
+            <li>
               <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">PATIEKALAI</a>
               <ul className="collapse list-unstyled" id="homeSubmenu">
                 <li>
@@ -45,10 +49,10 @@ class Navbar extends React.Component {
               <a href="#">APIE NUTRI</a>
             </li>
             <li>
-              <a href="#">RECEPTAI</a>
+              <a href="/recipes">RECEPTAI</a>
             </li>
             <li>
-              <a href="#">KONTAKTAI</a>
+              <a href="#">MŪSŲ KOMANDA</a>
             </li>
           </ul>
           <ul className="list-unstyled CTAs">
@@ -56,7 +60,7 @@ class Navbar extends React.Component {
               <a href="#" className="navLogin">PRISIJUNGTI</a>
             </li>
             <li>
-              <a href="#" className="navRegister">REGISTRUOTIS</a>
+              <a href="/createProfile" className="navRegister">REGISTRUOTIS</a>
             </li>
           </ul>
         </nav>

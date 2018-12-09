@@ -1,6 +1,7 @@
 #myModal
 {
-    margin-top: 10rem;
+    margin-top: 5rem;
+    padding: 0 !important;
 }
 h2 {
     font-family: sans-serif;
@@ -15,10 +16,13 @@ p {
     color: rgb(102, 101, 101);
 }
 
+<<<<<<< HEAD
 .input {
     width: 15%;
     height: 1.3em;
 }
+=======
+>>>>>>> 53513f9b1c84808e8ef767c2738fb8c9c0046d95
 
 .radioButton {
     padding: 10px 0 10px 0;
@@ -71,7 +75,10 @@ p {
 .modalOpen {
     background-color: #7386D5;
     color: white;
+<<<<<<< HEAD
     width: 15%;
+=======
+>>>>>>> 53513f9b1c84808e8ef767c2738fb8c9c0046d95
     height: 35px;
     border-radius: 12px;
     text-align: center;
@@ -85,11 +92,12 @@ p {
     background-color: #7386D5;
     color: white; 
     border: #7386D5;
+    border-radius: .25rem;
 }
 
 .button1:hover {
-    background-color: #9BBDE3;
-    color: black;
+    background-color: #5f70b7;
+    color: #fff;
 }
 
 .modalClose {
@@ -97,6 +105,7 @@ p {
     border-radius: 12px;
     width: 15%;
     height: 30px;
+    color:#fff;
     border: #9BBDE3;
     text-align: center;
     -webkit-transition-duration: 0.4s; 
@@ -106,22 +115,23 @@ p {
 }
 
 .button2 {
-    background-color: #9BBDE3;
-    color: black; 
-    border: #9BBDE3;
+    background-color: #7386D5;
+    color: white; 
+    border: #7386D5;
+    border-radius: .25rem;
 }
 
 .button2:hover {
-    background-color: #58b3e7;
+    background-color: #5f70b7;
     color: white;
 }
 
 .count {
-    background-color: #9BBDE3;
-    border-radius: 12px;
+    background-color: #7386D5;
+    border-radius: .25rem;
     width: 17%;
     height: 30px;
-    border: #9BBDE3;
+    border: #7386D5;
     text-align: center;
     -webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;
