@@ -105,7 +105,7 @@ class KMI extends React.Component {
     return (
       <Router>
         <div>
-          <button type="button" id="modalOpen" className="modalOpen button1" data-toggle="modal" data-target="#myModal">KMI</button>     
+          <button type="button" id="modalOpen" className="modalOpen button1" data-toggle="modal" data-target="#myModal">Kalorijų skaičiuoklė</button>     
           <div id="myModal" className="modal">      
             <div className="modal-content">
               <div className="modal-header">        
@@ -121,6 +121,7 @@ class KMI extends React.Component {
                       checked={this.state.gender === 'male'} 
                       onChange={this.genderChange} 
                       name="gender" 
+                      className="radioButton"
                     /> 
                     Vyras
                     <input 
@@ -129,11 +130,12 @@ class KMI extends React.Component {
                       checked={this.state.gender === 'female'}
                       onChange={this.genderChange} 
                       name="gender"
+                      className="radioButton"
                     />
                     Moteris</p>
-                  <p>Įveskite savo ūgį: <input type="text" value={this.state.height} onChange={this.heightChange}/> cm</p>                       
-                  <p>Įveskite savo svorį: <input type="text" value={this.state.weight} onChange={this.weightChange}/> kg</p> 
-                  <p>Įveskite savo amžių: <input type="text" value={this.state.age} onChange={this.ageChange}/>m</p>
+                  <p>Įveskite savo ūgį: <input className="input" type="text" value={this.state.height} onChange={this.heightChange}/> cm</p>                       
+                  <p>Įveskite savo svorį: <input type="text" className="input" value={this.state.weight} onChange={this.weightChange}/> kg</p> 
+                  <p>Įveskite savo amžių: <input type="text" className="input" value={this.state.age} onChange={this.ageChange}/>m</p>
                   <p>Pasirinkite savo fizinį aktyvumą per savaitę:
                     <select onChange={this.activeChange} value={this.state.active}>
                       <option value="passive">Pasyvus</option>
