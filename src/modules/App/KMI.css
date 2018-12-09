@@ -74,11 +74,12 @@ p {
     background-color: #7386D5;
     color: white; 
     border: #7386D5;
+    border-radius: .25rem;
 }
 
 .button1:hover {
-    background-color: #9BBDE3;
-    color: black;
+    background-color: #5f70b7;
+    color: #fff;
 }
 
 .modalClose {
@@ -86,6 +87,7 @@ p {
     border-radius: 12px;
     width: 15%;
     height: 30px;
+    color:#fff;
     border: #9BBDE3;
     text-align: center;
     -webkit-transition-duration: 0.4s; 
@@ -95,22 +97,23 @@ p {
 }
 
 .button2 {
-    background-color: #9BBDE3;
-    color: black; 
-    border: #9BBDE3;
+    background-color: #7386D5;
+    color: white; 
+    border: #7386D5;
+    border-radius: .25rem;
 }
 
 .button2:hover {
-    background-color: #58b3e7;
+    background-color: #5f70b7;
     color: white;
 }
 
 .count {
-    background-color: #9BBDE3;
-    border-radius: 12px;
+    background-color: #7386D5;
+    border-radius: .25rem;
     width: 17%;
     height: 30px;
-    border: #9BBDE3;
+    border: #7386D5;
     text-align: center;
     -webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;

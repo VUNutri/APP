@@ -20,7 +20,7 @@ class Navbar extends React.Component {
           </div>
           <ul className="list-unstyled components">
             <li>
-              <a href="/home">PAGRINDINIS</a>
+              <a href="/">PAGRINDINIS</a>
             </li>
             <li>
               <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">PATIEKALAI</a>

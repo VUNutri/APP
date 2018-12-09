@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { WithContext as ReactTags } from 'react-tag-input';
 import './Blocker.css';
 
@@ -27,16 +26,17 @@ class Blocker extends React.Component {
   render() {
     const { tags } = this.state;
     return (
-      <table id="table">
-        <p>Įveskite nenorimus produktus</p>
-        <ReactTags 
-          tags={tags}
-          handleDelete={this.handleDelete}
-          handleAddition={this.handleAddition}
-          placeholder=""  
-        />
-        <br/>
-      </table>
+      <div className="tag-div">
+        <div className="col col-md-6 col-sm-12">
+          Produktai, kurių neįtraukti į maisto racioną:
+          <ReactTags
+            tags={tags}
+            handleDelete={this.handleDelete}
+            handleAddition={this.handleAddition}
+            placeholder=""
+          />
+        </div>
+      </div>
     )
   }
 };

@@ -105,49 +105,105 @@ class KMI extends React.Component {
     return (
       <Router>
         <div>
-          <button type="button" id="modalOpen" className="modalOpen button1" data-toggle="modal" data-target="#myModal">KMI</button>     
+          <button type="button" id="modalOpen" className="modalOpen button1" data-toggle="modal" data-target="#myModal">KMI SKAIČIUOKLĖ</button>     
           <div id="myModal" className="modal">      
             <div className="modal-content">
               <div className="modal-header">        
-                <h2>Kalorijų dienos normos skaičiuoklė</h2>
+                <h3>Kalorijų dienos normos skaičiuoklė</h3>
               </div>
               <div className="modal-body">
                 <form onSubmit={this.submit}>
-                  <br/>
-                  <p>Pažymėkite savo lytį: 
-                    <input
-                      type="radio" 
-                      value="male" 
-                      checked={this.state.gender === 'male'} 
-                      onChange={this.genderChange} 
-                      name="gender"
-                    /> 
-                    Vyras
-                    <input 
-                      type="radio"
-                      value="female" 
-                      checked={this.state.gender === 'female'}
-                      onChange={this.genderChange} 
-                      name="gender"
-                    />
-                    Moteris</p>
-                  <p>Įveskite savo ūgį: <input type="text" value={this.state.height} onChange={this.heightChange}/> cm</p>                       
-                  <p>Įveskite savo svorį: <input type="text" value={this.state.weight} onChange={this.weightChange}/> kg</p> 
-                  <p>Įveskite savo amžių: <input type="text" value={this.state.age} onChange={this.ageChange}/>m</p>
-                  <p>Pasirinkite savo fizinį aktyvumą per savaitę:
-                    <select onChange={this.activeChange} value={this.state.active}>
-                      <option value="passive">Pasyvus</option>
-                      <option value="mild">Lengvai aktyvus</option>
-                      <option value="moderate">Vidutiniškai aktyvus</option>
-                      <option value="heavy">Labai aktyvus</option>
-                      <option value="extreme">Ypač aktyvus</option>
-                    </ select>
-                  </ p>
                   <br />
-                  <input type="submit" value="Skaičiuoti" className="count button2"/>
-                  <br/>
-                  <br/>
-                  <p>Rekomenduojama kalorijų dienos norma yra: {this.state.calories}</p>
+                  <div className="row text-left">
+                    <div className="col col-md-4">
+                      Pažymėkite savo lytį:
+                    </div>
+                    <div className="col col-md-4">
+                      <input
+                        type="radio"
+                        value="male"
+                        checked={this.state.gender === 'male'}
+                        onChange={this.genderChange}
+                        name="gender"
+                      />
+                      Vyras
+                    </div>
+                    <div className="col col-md-4">
+                      <input
+                        type="radio"
+                        value="female"
+                        checked={this.state.gender === 'female'}
+                        onChange={this.genderChange}
+                        name="gender"
+                      />
+                      Moteris
+                    </div>
+                  </div>
+                  <br />
+                  <div className="row text-left">
+                    <div className="col col-md-4">
+                      Įveskite savo ūgį:
+                    </div>
+                    <div className="col col-md-8">
+                      <input type="text" value={this.state.height} onChange={this.heightChange}/>
+                       cm
+                    </div>
+                  </div>
+                  <br />
+                  <div className="row text-left">
+                    <div className="col col-md-4">
+                      Įveskite savo ūgį:
+                    </div>
+                    <div className="col col-md-8">
+                      <input type="text" value={this.state.height} onChange={this.heightChange} />
+                       cm
+                    </div>
+                  </div>
+                  <br />
+                  <div className="row text-left">
+                    <div className="col col-md-4">
+                      Įveskite savo svorį:
+                    </div>
+                    <div className="col col-md-8">
+                      <input type="text" value={this.state.weight} onChange={this.weightChange} />
+                       kg
+                    </div>
+                  </div>
+                  <br />
+                  <div className="row text-left">
+                    <div className="col col-md-4">
+                      Įveskite savo amžių:
+                    </div>
+                    <div className="col col-md-8">
+                      <input type="text" value={this.state.age} onChange={this.ageChange} />
+                       m
+                    </div>
+                  </div>
+                  <br />
+                  <div className="row text-left">
+                    <div className="col col-md-4">
+                      Fizinis aktyvumas:
+                    </div>
+                    <div className="col col-md-8">
+                      <select onChange={this.activeChange} value={this.state.active}>
+                        <option value="passive">Pasyvus</option>
+                        <option value="mild">Lengvai aktyvus</option>
+                        <option value="moderate">Vidutiniškai aktyvus</option>
+                        <option value="heavy">Labai aktyvus</option>
+                        <option value="extreme">Ypač aktyvus</option>
+                      </select>
+                    </div>
+                  </div>
+                  <br />
+                  <div className="row text-left">
+                    <div className="col col-md-12">
+                      Rekomenduojama kalorijų dienos norma yra: {this.state.calories}
+                    </div>
+                  </div>
+                  <br />
+                  <input type="submit" value="Skaičiuoti" className="count button2" />
+                  <br />
+                  <br />
                 </form>
               </div>
               <div className="modal-footer">

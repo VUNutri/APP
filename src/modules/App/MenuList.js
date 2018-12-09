@@ -45,20 +45,20 @@ class MenuList extends React.Component {
     }
 
     return (
-      <div className="menu-day container">
+      <div className="menu-day">
         <h2 className="menu-day-title">{ days[day.dayCount - 1] + ' diena' }</h2>
         <h3 className="menu-day-calories">{ calories } kalorijos</h3>
         <div className="menu-day-meals">
           { day.meals.map((meal, index) => (
-            <div className="menu-day-meals-meal container">
+            <div className="menu-day-meals-meal">
               <div className="row">
-                <div className="col col-sm-1">
+                <div className="col col-md-1 col-sm-1">
                   <i className="material-icons menu-drag-icon">drag_indicator</i>
                 </div>
-                <div className="col col-sm-3">
+                <div className="col col-md-3 col-sm-11">
                   <img alt="Meal" className="menu-day-meals-meal-img" src={ meal.image } />
                 </div>
-                <div className="col col-sm-8">
+                <div className="col col-md-8 col-sm-12">
                   <h3 className="menu-day-meals-meal-title">{ meal.title }</h3>
                   <p className="menu-day-meals-meal-time">
                     <i className="material-icons menu-day-time">query_builder</i>
@@ -82,13 +82,11 @@ class MenuList extends React.Component {
     return (
       <div className="menuContainer">
         {this.getDaysList()}
-        <div className="container">
           <div className="row">
             <div className="col col-sm-12">
               { this.getDay() }
             </div>
           </div>
-        </div>
       </div>
     );
   }
