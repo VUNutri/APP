@@ -105,11 +105,7 @@ class KMI extends React.Component {
     return (
       <Router>
         <div>
-<<<<<<< HEAD
           <button type="button" id="modalOpen" className="modalOpen button1" data-toggle="modal" data-target="#myModal">Kalorijų skaičiuoklė</button>     
-=======
-          <button type="button" id="modalOpen" className="modalOpen button1" data-toggle="modal" data-target="#myModal">KMI SKAIČIUOKLĖ</button>     
->>>>>>> 53513f9b1c84808e8ef767c2738fb8c9c0046d95
           <div id="myModal" className="modal">      
             <div className="modal-content">
               <div className="modal-header">        
@@ -117,42 +113,6 @@ class KMI extends React.Component {
               </div>
               <div className="modal-body">
                 <form onSubmit={this.submit}>
-<<<<<<< HEAD
-                  <br/>
-                  <p>Pažymėkite savo lytį: 
-                    <input
-                      type="radio" 
-                      value="male" 
-                      checked={this.state.gender === 'male'} 
-                      onChange={this.genderChange} 
-                      name="gender" 
-                      className="radioButton"
-                    /> 
-                    Vyras
-                    <input 
-                      type="radio"
-                      value="female" 
-                      checked={this.state.gender === 'female'}
-                      onChange={this.genderChange} 
-                      name="gender"
-                      className="radioButton"
-                    />
-                    Moteris</p>
-                  <p>Įveskite savo ūgį: <input className="input" type="text" value={this.state.height} onChange={this.heightChange}/> cm</p>                       
-                  <p>Įveskite savo svorį: <input type="text" className="input" value={this.state.weight} onChange={this.weightChange}/> kg</p> 
-                  <p>Įveskite savo amžių: <input type="text" className="input" value={this.state.age} onChange={this.ageChange}/>m</p>
-                  <p>Pasirinkite savo fizinį aktyvumą per savaitę:
-                    <select onChange={this.activeChange} value={this.state.active}>
-                      <option value="passive">Pasyvus</option>
-                      <option value="mild">Lengvai aktyvus</option>
-                      <option value="moderate">Vidutiniškai aktyvus</option>
-                      <option value="heavy">Labai aktyvus</option>
-                      <option value="extreme">Ypač aktyvus</option>
-                    </ select>
-                  </ p>
-=======
->>>>>>> 53513f9b1c84808e8ef767c2738fb8c9c0046d95
-                  <br />
                   <div className="row text-left">
                     <div className="col col-md-4">
                       Pažymėkite savo lytį:
@@ -164,6 +124,7 @@ class KMI extends React.Component {
                         checked={this.state.gender === 'male'}
                         onChange={this.genderChange}
                         name="gender"
+                        className="radioButton"
                       />
                       Vyras
                     </div>
@@ -174,6 +135,7 @@ class KMI extends React.Component {
                         checked={this.state.gender === 'female'}
                         onChange={this.genderChange}
                         name="gender"
+                        className="radioButton"
                       />
                       Moteris
                     </div>
@@ -184,18 +146,8 @@ class KMI extends React.Component {
                       Įveskite savo ūgį:
                     </div>
                     <div className="col col-md-8">
-                      <input type="text" value={this.state.height} onChange={this.heightChange}/>
-                       cm
-                    </div>
-                  </div>
-                  <br />
-                  <div className="row text-left">
-                    <div className="col col-md-4">
-                      Įveskite savo ūgį:
-                    </div>
-                    <div className="col col-md-8">
-                      <input type="text" value={this.state.height} onChange={this.heightChange} />
-                       cm
+                      <input type="text" className="input" value={this.state.height} onChange={this.heightChange} />
+                      cm
                     </div>
                   </div>
                   <br />
@@ -204,8 +156,8 @@ class KMI extends React.Component {
                       Įveskite savo svorį:
                     </div>
                     <div className="col col-md-8">
-                      <input type="text" value={this.state.weight} onChange={this.weightChange} />
-                       kg
+                      <input type="text" className="input" value={this.state.weight} onChange={this.weightChange} />
+                      kg
                     </div>
                   </div>
                   <br />
@@ -214,7 +166,7 @@ class KMI extends React.Component {
                       Įveskite savo amžių:
                     </div>
                     <div className="col col-md-8">
-                      <input type="text" value={this.state.age} onChange={this.ageChange} />
+                      <input type="text" className="input" value={this.state.age} onChange={this.ageChange} />
                        m
                     </div>
                   </div>
