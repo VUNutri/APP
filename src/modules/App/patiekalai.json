@@ -1,0 +1,29 @@
+[
+      {
+        "id": 3,
+        "title": "Kepsnys",
+        "category": 1,
+        "calories": 500,
+        "time": 35,
+        "desc": "Kazkas apie sita suda",
+        "image": "https://s2.15min.lt/static/cache/ODgweDU4MCwzMzF4Mjg5LDYxNjMzNyxvcmlnaW5hbCwsaWQ9NDU5MjI5JmRhdGU9MjAxMiUyRjA0JTJGMjQsNjc2NTIyODA2/aromatingas-kiaulienos-kepsnys-4f9675b9d7c80.jpg"
+      },
+      {
+        "id": 4,
+        "title": "Agurkienė",
+        "category": 2,
+        "calories": 600,
+        "time": 32,
+        "desc": "Kazkas apie sita suda",
+        "image": "https://i4.alfi.lt/16322/68/57.jpg"
+      },
+      {
+        "id": 5,
+        "title": "Tinginys",
+        "category": 3,
+        "time": 20,
+        "calories": 700,
+        "desc": "Kazkas apie sita suda",
+        "image": "https://g2.dcdn.lt/images/pix/tinginys-63472570.jpg"
+      }
+]

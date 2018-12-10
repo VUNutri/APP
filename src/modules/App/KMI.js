@@ -6,7 +6,7 @@ class KMI extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { weight: null, height: null, age: null, gender: null, active: 'passive', calories: null, kmi: null};
+    this.state = { weight: null, height: null, age: null, gender: null, active: 'passive', calories: 2000 };
     this.heightChange = this.heightChange.bind(this);
     this.weightChange = this.weightChange.bind(this);
     this.ageChange = this.ageChange.bind(this);  
@@ -188,7 +188,7 @@ class KMI extends React.Component {
                   <br />
                   <div className="row text-left">
                     <div className="col col-md-12">
-                      Rekomenduojama kalorijų dienos norma yra: {this.state.calories}
+                      <span>Rekomenduojama kalorijų dienos norma yra: <b>{this.state.calories}</b> kalorijos</span>
                     </div>
                   </div>
                   <br />

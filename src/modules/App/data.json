@@ -48,5 +48,47 @@
         "image": "https://g2.dcdn.lt/images/pix/tinginys-63472570.jpg"
       }
     ]
+  },
+  {
+    "dayCount": 3,
+    "meals": [
+      {
+        "id": 0,
+        "title": "Kiaušinienė",
+        "category": 0,
+        "time": 30,
+        "calories": 200,
+        "image": "https://g1.dcdn.lt/images/pix/280x170/mpKx1kWteUg/burnoje-tirpstanti-kiausiniene-su-porais-72546832.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Blynai",
+        "category": 1,
+        "time": 20,
+        "calories": 450,
+        "image": "https://www.lamaistas.lt/uploads/modules/recipes/thumb920x573/18968.jpg"
+      }
+    ]
+  },
+  {
+    "dayCount": 4,
+    "meals": [
+      {
+        "id": 0,
+        "title": "Kiaušinienė",
+        "category": 0,
+        "time": 30,
+        "calories": 200,
+        "image": "https://g1.dcdn.lt/images/pix/280x170/mpKx1kWteUg/burnoje-tirpstanti-kiausiniene-su-porais-72546832.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Blynai",
+        "category": 1,
+        "time": 20,
+        "calories": 450,
+        "image": "https://www.lamaistas.lt/uploads/modules/recipes/thumb920x573/18968.jpg"
+      }
+    ]
   }
 ]

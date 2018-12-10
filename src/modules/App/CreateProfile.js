@@ -31,10 +31,12 @@ class CreateProfile extends React.Component {
           </nav>
           <div>
             <div className="row">
-              <DragDrop />
-            </div>
-            <div className="row">
-              <Blocker />
+              <div className="col col-md-6">
+                <DragDrop />
+              </div>
+              <div className="col col-md-6">
+                <Blocker />
+              </div>
             </div>
             <div className="row">
               <KMI />

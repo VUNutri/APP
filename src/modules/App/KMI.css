@@ -28,10 +28,8 @@ p {
 }
 
 .modal-header {
-    padding: 2px 7.1vw;
     background-color: #7386D5;
     color: white;
-    align-self: center;
 }
 
 .modal-body {
@@ -40,10 +38,8 @@ p {
 }
 
 .modal-footer {
-    padding: 2px 16px;
     background-color: #7386D5;
     color: white;
-    height: 45px;
 }
 
 .modal-content {

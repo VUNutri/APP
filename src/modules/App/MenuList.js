@@ -58,16 +58,19 @@ class MenuList extends React.Component {
                 <div className="col col-md-3 col-sm-11">
                   <img alt="Meal" className="menu-day-meals-meal-img" src={ meal.image } />
                 </div>
-                <div className="col col-md-8 col-sm-12">
+                <div className="col col-md-7 col-sm-12">
                   <h3 className="menu-day-meals-meal-title">{ meal.title }</h3>
                   <p className="menu-day-meals-meal-time">
                     <i className="material-icons menu-day-time">query_builder</i>
                     { meal.time }min.
                   </p>
                   <div className="menu-day-meal-input">
-                    <input type="number" className="portion-input" value="1" />
+                    <input type="number" className="portion-input" min="0" max="10" />
                     <p className="portion-calories">porcija(-os)</p>
                   </div>
+                </div>
+                <div className="col col-md-1 col-sm-1">
+                  <i className="material-icons menu-drag-icon">delete</i>
                 </div>
               </div>
             </div>
