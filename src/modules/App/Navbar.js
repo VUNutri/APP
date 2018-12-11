@@ -46,13 +46,10 @@ class Navbar extends React.Component {
               </ul>
             </li>
             <li>
-              <a href="#">APIE NUTRI</a>
-            </li>
-            <li>
               <a href="/recipes">RECEPTAI</a>
             </li>
             <li>
-              <a href="#">MŪSŲ KOMANDA</a>
+              <a href="#">APIE NUTRI</a>
             </li>
           </ul>
           <ul className="list-unstyled CTAs">

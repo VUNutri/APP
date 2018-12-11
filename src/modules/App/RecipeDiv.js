@@ -48,16 +48,39 @@ class RecipeDiv extends React.Component {
                   <img className="meal-img" src={this.props.image} alt={this.props.title} />
                 </div>
                 <div className="row">
-                  Pavadinimas: <b>{this.props.title}</b>
+                  <div className="col col-md-4">
+                    Pavadinimas:
+                  </div>
+                  <div className="col col-md-8">
+                    <b>{this.props.title}</b>
+                  </div>
                 </div>
+                <br />
                 <div className="row">
-                  Tipas: <b>{this.renderSwitch(this.props.category)}</b>
+                  <div className="col col-md-4">
+                    Tipas:
+                  </div>
+                  <div className="col col-md-8">
+                    <b>{this.renderSwitch(this.props.category)}</b>
+                  </div>
                 </div>
+                <br />
                 <div className="row">
-                  Gaminimo laikas: <b>{this.props.time}</b>
+                  <div className="col col-md-4">
+                    Gaminimo laikas:
+                  </div>
+                  <div className="col col-md-8">
+                    <b>{this.props.time}min.</b>
+                  </div>
                 </div>
+                <br />
                 <div className="row">
-                  Instrukcijos: <b>{this.props.instructions}</b>
+                  <div className="col col-md-4">
+                    Gaminimo instrukcijos:
+                  </div>
+                  <div className="col col-md-8">
+                    <b>{this.props.instructions}</b>
+                  </div>
                 </div>
               </div>
               <div className="modal-footer">
