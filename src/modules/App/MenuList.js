@@ -20,11 +20,20 @@ class MenuList extends React.Component {
   getDaysList() {
     return (
       <ul className="days-count-list">
-      { this.state.items.map((day, index) => (
-        <li className={"days-count-list-item " + (this.state.selectedDay === index ? 'selected-day' : '')} onClick={() => this.changeDayShow(index)}>{index + 1} diena</li>
-      ))}
+        { this.state.items.map((day, index) => (
+          <li className={"days-count-list-item " + (this.state.selectedDay === index ? 'selected-day' : '')} onClick={() => this.changeDayShow(index)}>{index + 1} diena</li>
+        ))}
       </ul>
     );
+  }
+
+  removeMeal(e) {
+    let array = [...this.state.data];
+    let index = array.indexOf(e.target.value)
+    if (index !== -1) {
+      array.splice(index, 1);
+      this.setState({ data: array });
+    }
   }
 
   getDay() {
