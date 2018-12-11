@@ -35,11 +35,13 @@ class CreateProfile extends React.Component {
                 <DragDrop />
               </div>
               <div className="col col-md-6">
+                <KMI />
+                <br />
                 <Blocker />
               </div>
             </div>
             <div className="row">
-              <KMI />
+              
             </div>
           </div>
         </div>

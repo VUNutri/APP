@@ -6,7 +6,13 @@ class Blocker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tags: []
+      tags: [],
+      suggestions: [
+        { id: '1', text: 'pienas' },
+        { id: '2', text: 'svogūnai' },
+        { id: '3', text: 'pomidorai' },
+        { id: '4', text: 'bulvės' },
+     ]
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
@@ -20,11 +26,12 @@ class Blocker extends React.Component {
   }
  
   handleAddition(tag) {
-    this.setState(state => ({ tags: [...state.tags, tag] }));
+    this.setState(state => ({ tags: [...state.tags, tag] }));    
   }
 
+
   render() {
-    const { tags } = this.state;
+    const { tags, suggestions } = this.state;
     return (
       <div className="tag-div">
         <div className="col col-md-6 col-sm-12">
@@ -33,6 +40,7 @@ class Blocker extends React.Component {
             tags={tags}
             handleDelete={this.handleDelete}
             handleAddition={this.handleAddition}
+            suggestions={suggestions}
             placeholder=""
           />
         </div>

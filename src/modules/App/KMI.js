@@ -6,12 +6,14 @@ class KMI extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { weight: null, height: null, age: null, gender: null, active: 'passive', calories: 2000 };
+    this.state = { weight: null, height: null, age: null, gender: null, active: 'passive', calories: 2000, daysNumber: 1, mealsNumber: 1 };
     this.heightChange = this.heightChange.bind(this);
     this.weightChange = this.weightChange.bind(this);
     this.ageChange = this.ageChange.bind(this);  
     this.genderChange = this.genderChange.bind(this); 
     this.activeChange = this.activeChange.bind(this);  
+    this.daysNumberChange = this.daysNumberChange.bind(this); 
+    this.mealsNumberChange = this.mealsNumberChange.bind(this); 
     this.KMI = this.KMI.bind(this);
     this.caloriesCalculator = this.caloriesCalculator.bind(this);
     this.submit = this.submit.bind(this);
@@ -38,6 +40,16 @@ class KMI extends React.Component {
 
   activeChange(e) {
     this.setState({ active: e.target.value });
+    e.preventDefault();
+  }
+
+  daysNumberChange(e) {
+    this.setState({ daysNumber: e.target.value });
+    e.preventDefault();
+  }
+
+  mealsNumberChange(e) {
+    this.setState({ mealsNumber: e.target.value });
     e.preventDefault();
   }
   
@@ -103,13 +115,13 @@ class KMI extends React.Component {
 
   render() {
     return (
-        <div>
-          <button type="button" id="modalOpen" className="modalOpen button1" data-toggle="modal" data-target="#myModal">Kalorijų skaičiuoklė</button>     
-          <div id="myModal" className="modal">      
-            <div className="modal-content">
-              <div className="modal-header">        
-                <h3>Kalorijų dienos normos skaičiuoklė</h3>
-              </div>
+      <div className="col col-md-6 col-sm-12">
+        <button type="button" id="modalOpen" className="modalOpen button1" data-toggle="modal" data-target="#myModal">Kalorijų skaičiuoklė</button>     
+        <div id="myModal" className="modal">      
+          <div className="modal-content">
+            <div className="modal-header">        
+              <h3>Kalorijų dienos normos skaičiuoklė</h3>
+            </div>
               <div className="modal-body">
                 <form onSubmit={this.submit}>
                   <div className="row text-left">
@@ -196,12 +208,20 @@ class KMI extends React.Component {
                   <br />
                 </form>
               </div>
-              <div className="modal-footer">
-                <button type="button" className="modalClose button2" data-dismiss="modal">Uždaryti</button>
-              </div>
-            </div> 
-          </div>
+            <div className="modal-footer">
+              <button type="button" className="modalClose button2" data-dismiss="modal">Uždaryti</button>
+            </div>
+          </div> 
         </div>
+        <br />
+        <br />
+        <p>Dienos</p>
+        <input type="range" name="daysSlider" className="slider" min="1" max="7" value={this.state.daysNumber} onChange={this.daysNumberChange} />
+        <label for="daysSlider">{this.state.daysNumber}</label>
+        <p>Valgymų kartai</p>
+        <input type="range" name="mealsSlider" className="slider" min="1" max="7" value={this.state.mealsNumber} onChange={this.mealsNumberChange} />
+        <label for="mealsSlider">{this.state.mealsNumber}</label>
+      </div>
     );
   }
 }
