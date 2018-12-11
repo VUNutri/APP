@@ -1,0 +1,125 @@
+h2 {
+    font-family: sans-serif;
+    line-height: 1.5em;
+}
+
+p {
+    font-family: sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: rgb(102, 101, 101);
+}
+
+.input {
+    width: 25%;
+    height: 1.3em;
+    margin-right: 5px;
+}
+
+.radioButton {
+    padding: 10px 0 10px 0;
+    margin-right: 8px;
+}
+
+.modal-header {
+    background-color: #fff;
+    color: black;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    border-radius: 16px;
+}
+
+.modal-footer {
+    background-color: #fff;
+    color: black;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 45%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+} 
+
+.modalOpen {
+    background-color: #7386D5;
+    color: white;
+    width: 15%;
+    height: 35px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.25vw;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-size: 1vw; 
+}
+.button1 {
+    background-color: #7386D5;
+    color: white; 
+    border: #7386D5;
+    border-radius: .25rem;
+}
+
+.button1:hover {
+    background-color: #5f70b7;
+    color: #fff;
+}
+
+.modalClose {
+    background-color: #9BBDE3;
+    border-radius: 12px;
+    width: 15%;
+    height: 30px;
+    color:#fff;
+    border: #9BBDE3;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-size: 1.15vw; 
+}
+
+.button2 {
+    background-color: #7386D5;
+    color: white; 
+    border: #7386D5;
+    border-radius: .25rem;
+}
+
+.button2:hover {
+    background-color: #5f70b7;
+    color: white;
+}
+
+.count {
+    background-color: #7386D5;
+    border-radius: .25rem;
+    width: 17%;
+    height: 30px;
+    border: #7386D5;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-size: 1.15vw; 
+}

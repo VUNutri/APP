@@ -1,8 +1,8 @@
 .meal-img {
-  max-width: 100%;
-  height: 100%;
+  width: 100%;
+  height: 10rem;
   object-fit: cover;
-  max-height: 4rem;
-  max-width: 4rem;
-  border-radius: 50%;
+}
+.dark-overlay{
+  background: rgba(38, 39, 41, 0.83);
 }

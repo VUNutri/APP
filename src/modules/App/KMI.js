@@ -103,7 +103,6 @@ class KMI extends React.Component {
 
   render() {
     return (
-      <Router>
         <div>
           <button type="button" id="modalOpen" className="modalOpen button1" data-toggle="modal" data-target="#myModal">Kalorijų skaičiuoklė</button>     
           <div id="myModal" className="modal">      
@@ -203,7 +202,6 @@ class KMI extends React.Component {
             </div> 
           </div>
         </div>
-      </Router>
     );
   }
 }

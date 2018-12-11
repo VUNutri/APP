@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router } from 'react-router-dom';
 import './Container.css';
 import './App.css';
 import $ from 'jquery';
@@ -30,8 +29,8 @@ class recipePage extends React.Component {
 
   render()
   {
-    const allMeals = this.state.meals.map((meal,index) =>
-      <RecipeDiv title={meal.title} id={meal.id} image={meal.image} instructions={meal.instructions} />
+    const allMeals = this.state.meals.map(meal =>
+      <RecipeDiv {...meal} />
     );
     return (
       <div id="content">
