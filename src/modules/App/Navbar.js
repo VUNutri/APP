@@ -2,13 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../img/logo.png';
-import recipePage from './recipePage';
-import Container from './Container';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {userLoggedIn:false};
+    this.state = { userLoggedIn:false };
   }
 
   render() {
@@ -16,7 +14,7 @@ class Navbar extends React.Component {
       <Router>
         <nav id="sidebar">
           <div className="sidebar-header">
-            <img alt="Nutri logo" src={logo} className="navLogo"/>
+            <img alt="Nutri logo" src={logo} className="navLogo" />
           </div>
           <ul className="list-unstyled components">
             <li>
@@ -49,7 +47,7 @@ class Navbar extends React.Component {
               <a href="/recipes">RECEPTAI</a>
             </li>
             <li>
-              <a href="#">APIE NUTRI</a>
+              <a href="/about">APIE NUTRI</a>
             </li>
           </ul>
           <ul className="list-unstyled CTAs">

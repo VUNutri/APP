@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import Container from './Container';
 import recipePage from './recipePage';
 import CreateProfile from './CreateProfile';
+import AboutPage from './AboutPage';
 
 const App = () => (
   <div className="App">
@@ -14,6 +15,7 @@ const App = () => (
         <Route exact path="/" component={Container} />
         <Route exact path="/recipes" component={recipePage} />
         <Route exact path="/createProfile" component={CreateProfile} />
+        <Route exact path="/about" component={AboutPage} />
       </div>
     </Router>
   </div>
