@@ -15,6 +15,7 @@ class MenuList extends React.Component {
     this.getDay = this.getDay.bind(this);
     this.changeDayShow = this.changeDayShow.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.getFoodList = this.getFoodList.bind(this);
   }
 
   componentWillMount() {
@@ -35,12 +36,6 @@ class MenuList extends React.Component {
   }
 
   getDaysList() {
-    if (this.state.items.length < 1) {
-      return (
-        <div><p>Empty</p></div>
-      )
-    }
-
     return (
       <ul className="days-count-list">
         { this.state.items.map((day, index) => (
@@ -54,6 +49,35 @@ class MenuList extends React.Component {
     let arr = this.state.items;
     arr[this.state.selectedDay].meals.splice(index, 1);
     this.setState({items: arr });
+  }
+
+  getFoodList() {
+    const items = [];
+
+    this.state.items.map((day, index) => {
+      day.meals.map((meal, index) => {
+        meal.products.map((ingredient, index) => {
+          let found = false;
+          for (let i = 0; i < items.length; i += 1) {
+            if (items[i].title === ingredient.title) {
+              if (ingredient.size !== 'vnt') {
+                items[i].ammount += ingredient.value * 100;
+              } else {
+                items[i].ammount += ingredient.value;
+              }
+              found = true;
+            }
+          }
+          if (!found) {
+            items.push({ title: ingredient.title, size: ingredient.size, ammount: ingredient.value * 100 });
+          }
+        });
+      });
+    });
+
+    axios.post(Const.scraperHost, { products: items })
+      .then(resp => console.log(resp.data))
+      .catch(err => console.log(err));
   }
 
   getDay() {
@@ -98,7 +122,7 @@ class MenuList extends React.Component {
                     { meal.time } min.
                   </p>
                   <div className="menu-day-meal-input">
-                    <input type="number" className="portion-input" min="0" max="10" />
+                    <input type="number" className="portion-input" min="1" max="10" />
                     <p className="portion-calories">porcija(-os)</p>
                   </div>
                 </div>
@@ -123,6 +147,7 @@ class MenuList extends React.Component {
               { this.getDay() }
             </div>
           </div>
+          <button onClick={this.getFoodList}>Click</button>
       </div>
     );
   }
