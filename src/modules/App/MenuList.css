@@ -58,6 +58,7 @@
 .menu-day-meals-meal-title {
   font-size: 1rem;
   text-align: left;
+  text-transform: capitalize;
   margin: 0;
 }
 
