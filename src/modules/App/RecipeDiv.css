@@ -3,6 +3,43 @@
   height: 10rem;
   object-fit: cover;
 }
+
 .dark-overlay{
   background: rgba(38, 39, 41, 0.83);
+}
+
+.meal-modal {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 60vw !important;
+  border: none !important;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+@media (min-width: 576px)
+{
+.modal-dialog {
+    max-width: 100%;
+    margin: 1.75rem auto;
+}
+}
+
+.accordion .card{
+  border-bottom: none;
+}
+
+#headingOne{
+  border-bottom: none;
+}
+
+#product-card{
+  border: none;
+}
+
+.toUpper{
+  text-transform: uppercase;
 }
