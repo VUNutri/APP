@@ -75,8 +75,15 @@ class MenuList extends React.Component {
 
     return (
       <div className="menu-day">
-        <h2 className="menu-day-title">{ days[day.dayCount - 1] + ' diena' }</h2>
-        <h3 className="menu-day-calories">{ calories } kalorijos</h3>
+        <div className="row">
+          <div className="col col-md-10">
+            <h2 className="menu-day-title">{ days[day.dayCount - 1] + ' diena' }</h2>
+            <h3 className="menu-day-calories">{ calories } kalorijos</h3>
+          </div>
+          <div className="col col-md-2">
+            <i className="material-icons menu-drag-icon">refresh</i>
+          </div>
+        </div>
         <div className="menu-day-meals">
           { day.meals.map((meal, index) => (
             <div className="menu-day-meals-meal">

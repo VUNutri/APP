@@ -48,7 +48,7 @@ class RecipeDiv extends React.Component {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div className="modal-body">
+              <div className="modal-body" style={{padding: '0 1rem'}}>
                 <div className="row">
                   <img className="meal-img" src={this.props.image} alt={this.props.title} />
                 </div>
