@@ -76,6 +76,28 @@ class RecipeDiv extends React.Component {
                 <br />
                 <div className="row">
                   <div className="col col-md-4">
+                    Maistinės vertės:
+                  </div>
+                  <div className="col col-md-8">
+                    <ul className="list-group">
+                      <li className="list-group-item d-flex justify-content-between align-items-center">
+                        Kalorijos:
+                        <span className="badge badge-primary badge-pill">{this.props.calories} cal</span>
+                      </li>
+                      <li className="list-group-item d-flex justify-content-between align-items-center">
+                        Baltymai:
+                        <span className="badge badge-primary badge-pill">{this.props.proteins}g</span>
+                      </li>
+                      <li className="list-group-item d-flex justify-content-between align-items-center">
+                        Angliavandeniai:
+                        <span className="badge badge-primary badge-pill">{this.props.carbs}g</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <br />
+                <div className="row">
+                  <div className="col col-md-4">
                     Gaminimo instrukcijos:
                   </div>
                   <div className="col col-md-8">
