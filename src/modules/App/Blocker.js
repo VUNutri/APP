@@ -34,7 +34,7 @@ class Blocker extends React.Component {
     const { tags, suggestions } = this.state;
     return (
       <div className="tag-div">
-        <div className="col col-md-6 col-sm-12">
+        <div className="col col-sm-12">
           Produktai, kurių neįtraukti į maisto racioną:
           <ReactTags
             tags={tags}

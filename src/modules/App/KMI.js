@@ -115,7 +115,7 @@ class KMI extends React.Component {
 
   render() {
     return (
-      <div className="col col-md-6 col-sm-12">
+      <div className="col col-sm-12">
         <button type="button" id="modalOpen" className="modalOpen button1" data-toggle="modal" data-target="#myModal">Kalorijų skaičiuoklė</button>     
         <div id="myModal" className="modal">      
           <div className="modal-content">
