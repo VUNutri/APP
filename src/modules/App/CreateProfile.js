@@ -5,6 +5,7 @@ import $ from 'jquery';
 import KMI from './KMI';
 import Blocker from './Blocker';
 import DragDrop from './MenuList';
+import ShoppingBag from './ShoppingBag';
 
 class CreateProfile extends React.Component {
   handleClick() {
@@ -38,6 +39,8 @@ class CreateProfile extends React.Component {
                 <KMI />
                 <br />
                 <Blocker />
+                <br />
+                <ShoppingBag />
               </div>
             </div>
           </div>
