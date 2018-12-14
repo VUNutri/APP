@@ -8,6 +8,17 @@ import DragDrop from './MenuList';
 import ShoppingBag from './ShoppingBag';
 
 class CreateProfile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { kmiState:null };
+    this.updateKMIState = this.updateKMIState.bind(this);
+  }
+
+  updateKMIState(data) {
+    this.setState({kmiState:data});
+    console.log(this.state.kmiState);
+  }
+
   handleClick() {
     $('#sidebar, #content').toggleClass('active');
     $('.collapse.in').toggleClass('in');
@@ -32,10 +43,10 @@ class CreateProfile extends React.Component {
           </nav>
           <div>
             <div className="row">
-              <div className="col col-md-8">
+              <div className="col col-sm-12 col-md-8 ">
                 <DragDrop />
               </div>
-              <div className="col col-md-4">
+              <div className="col col-sm-12 col-md-4">
                 <KMI />
                 <br />
                 <Blocker />

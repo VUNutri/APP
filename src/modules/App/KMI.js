@@ -17,7 +17,7 @@ class KMI extends React.Component {
     this.KMI = this.KMI.bind(this);
     this.caloriesCalculator = this.caloriesCalculator.bind(this);
     this.submit = this.submit.bind(this);
-  }  
+  }
 
   heightChange(e) {
     this.setState({ height: e.target.value });

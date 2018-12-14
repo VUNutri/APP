@@ -146,7 +146,7 @@ class MenuList extends React.Component {
                 <div className="col col-md-4 col-sm-12">
                   <img alt="Meal" className="menu-day-meals-meal-img" src={ meal.image } />
                 </div>
-                <div className="col col-md-7 col-sm-12">
+                <div className="col col-md-6 col-sm-12">
                   <h3 className="menu-day-meals-meal-title">{ meal.title }</h3>
                   <p className="menu-day-meals-meal-time">
                     <i className="material-icons menu-day-time">query_builder</i>
