@@ -1,16 +1,24 @@
 import React from 'react';
 import axios from 'axios';
 
-import data from './data.json';
 import './MenuList.css';
 import Const from '../Const/Const';
-import { copyFileSync } from 'fs';
 
 class MenuList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { items: data, selectedDay: 0, daysCount: 7, mealsCount: 4, caloriesCount: 3500, timeCount: 40, blockedItems: [] };
+    const data = this.props;
+
+    this.state = {
+      items: data.items,
+      selectedDay: data.selectedDay,
+      daysCount: data.daysCount,
+      mealsCount: data.mealsCount,
+      caloriesCount: data.caloriesCount,
+      timeCount: data.timeCount,
+      blockedItems: data.blockedItems,
+    };
 
     this.getDay = this.getDay.bind(this);
     this.changeDayShow = this.changeDayShow.bind(this);
@@ -20,20 +28,40 @@ class MenuList extends React.Component {
   }
 
   componentWillMount() {
-    const self = this;
-    axios.post(`${Const.apiHost}menu/getMenu`, {
-      days: this.state.daysCount,
-      meals: this.state.mealsCount,
-      calories: this.state.caloriesCount,
-      time: this.state.timeCount,
-      blockedIngredients: this.state.blockedItems
-    }).then(res => {
-      self.setState({ items: res.data })
-    }).catch(err => console.log(err));
+    const data = this.state;
+    const propsData = this.props;
+
+    if (data.items.length < 1) {
+      axios.post(`${Const.apiHost}menu/getMenu`, {
+        days: data.daysCount,
+        meals: data.mealsCount,
+        calories: data.caloriesCount,
+        time: data.timeCount,
+        blockedIngredients: data.blockedItems,
+      }).then((res) => {
+        propsData.handler({
+          items: res.data,
+          selectedDay: data.selectedDay,
+          daysCount: data.daysCount,
+          mealsCount: data.mealsCount,
+          caloriesCount: data.caloriesCount,
+          timeCount: data.timeCount,
+          blockedItems: data.blockedItems,
+        });
+      }).catch(err => console.log(err));
+    }
   }
 
-  changeDayShow(index) {
-    return this.setState({ selectedDay: index });
+  componentWillReceiveProps(props) {
+    this.setState({
+      items: props.items,
+      selectedDay: props.selectedDay,
+      daysCount: props.daysCount,
+      mealsCount: props.mealsCount,
+      caloriesCount: props.caloriesCount,
+      timeCount: props.timeCount,
+      blockedItems: props.blockedItems,
+    });
   }
 
   getDaysList() {
@@ -44,12 +72,6 @@ class MenuList extends React.Component {
         ))}
       </ul>
     );
-  }
-
-  deleteItem(index) {
-    let arr = this.state.items;
-    arr[this.state.selectedDay].meals.splice(index, 1);
-    this.setState({items: arr });
   }
 
   refreshMeal(index, meal) {
@@ -122,6 +144,10 @@ class MenuList extends React.Component {
       'Septinta',
     ];
 
+    if (this.state.items.length < 1) {
+      return (<div><p>empty</p></div>)
+    }
+
     const day = this.state.items[this.state.selectedDay];
     let calories = 0;
     for (let i = 0; i < day.meals.length; i += 1) {
@@ -172,6 +198,17 @@ class MenuList extends React.Component {
     );
   }
 
+  changeDayShow(index) {
+    return this.setState({ selectedDay: index });
+  }
+
+  deleteItem(index) {
+    let arr = this.state.items;
+    arr[this.state.selectedDay].meals.splice(index, 1);
+    this.setState({items: arr });
+  }
+
+
   render() {
     return (
       <div className="menuContainer">
@@ -181,7 +218,6 @@ class MenuList extends React.Component {
               { this.getDay() }
             </div>
           </div>
-          <button onClick={this.getFoodList}>Click</button>
       </div>
     );
   }
