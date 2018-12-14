@@ -16,6 +16,7 @@ class MenuList extends React.Component {
     this.changeDayShow = this.changeDayShow.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.getFoodList = this.getFoodList.bind(this);
+    this.refreshMeal = this.refreshMeal.bind(this);
   }
 
   componentWillMount() {
@@ -49,6 +50,36 @@ class MenuList extends React.Component {
     let arr = this.state.items;
     arr[this.state.selectedDay].meals.splice(index, 1);
     this.setState({items: arr });
+  }
+
+  refreshMeal(index, meal) {
+    const self = this;
+    axios.post(`${Const.apiHost}menu/getDayOneMenu`, {
+      category: meal.category,
+      calories: this.state.caloriesCount,
+      time: this.state.timeCount,
+      blockedIngredients: this.state.blockedItems
+    }).then( (resp) => {
+      const arr = self.state.items;
+      arr[self.state.selectedDay].meals[index] = resp.data;
+      self.setState({ items: arr });
+    }).catch( err => console.log(err));
+  }
+
+  refreshDay() {
+    const self = this;
+    axios.post(`${Const.apiHost}menu/getDailyMenu`, {
+      dayCount: this.state.selectedDay + 1,
+      meals: this.state.mealsCount,
+      calories: this.state.caloriesCount,
+      time: this.state.timeCount,
+      blockedIngredients: this.state.blockedItems
+    }).then( (resp) => {
+      const arr = self.state.items;
+      arr[self.state.selectedDay] = resp.data;
+      self.setState({ items: arr });
+    }).catch( err => console.log(err));
+
   }
 
   getFoodList() {
@@ -104,7 +135,7 @@ class MenuList extends React.Component {
             <h2 className="menu-day-title">{ days[day.dayCount - 1] + ' diena' }</h2>
             <h3 className="menu-day-calories">{ calories } kalorijos</h3>
           </div>
-          <div className="col col-md-2">
+          <div className="col col-md-2" onClick={() => this.refreshDay()} >
             <i className="material-icons menu-drag-icon">refresh</i>
           </div>
         </div>
@@ -125,6 +156,9 @@ class MenuList extends React.Component {
                     <input type="number" className="portion-input" min="1" max="10" />
                     <p className="portion-calories">porcija(-os)</p>
                   </div>
+                </div>
+                <div className="col col-md-1 col-sm-1" index={index} onClick={() => this.refreshMeal(index, meal)}>
+                  <i className="material-icons menu-drag-icon">refresh</i>
                 </div>
                 <div className="col col-md-1 col-sm-1" index={index} onClick={() => this.deleteItem(index)}>
                   <i className="material-icons menu-drag-icon">delete</i>
