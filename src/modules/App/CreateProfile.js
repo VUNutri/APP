@@ -11,14 +11,11 @@ import ShoppingBag from './ShoppingBag';
 class CreateProfile extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = { items: [], selectedDay: 0, daysCount: 7, mealsCount: 4, caloriesCount: 3500, timeCount: 40, blockedItems: [] };
+    this.state = { items: [], selectedDay: 0, daysCount: 7, mealsCount: 4, caloriesCount: 3500, timeCount: 40, blockedItems: [], productsList: [] };
     this.handler = this.handler.bind(this);
   }
 
   handler(res) {
-    console.log('aa');
-    console.log(res);
     this.setState({
       items: res.items,
       selectedDay: res.selectedDay,
@@ -27,9 +24,8 @@ class CreateProfile extends React.Component {
       caloriesCount: res.caloriesCount,
       timeCount: res.timeCount,
       blockedItems: res.blockedItems,
+      productsList: res.productsList
     });
-
-    console.log(this.state);
   }
 
   handleClick() {
@@ -66,14 +62,13 @@ class CreateProfile extends React.Component {
                   caloriesCount={this.state.caloriesCount}
                   timeCount={this.state.timeCount}
                   blockedItems={this.state.blockedItems}
+                  productsList={this.state.productsList}
                 />
               </div>
               <div className="col col-sm-12 col-md-4">
                 <KMI />
                 <br />
                 <Blocker />
-                <br />
-                <ShoppingBag />
               </div>
             </div>
           </div>

@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-
 import './MenuList.css';
 import Const from '../Const/Const';
+import ShoppingBag from './ShoppingBag';
 
 class MenuList extends React.Component {
   constructor(props) {
@@ -18,6 +18,7 @@ class MenuList extends React.Component {
       caloriesCount: data.caloriesCount,
       timeCount: data.timeCount,
       blockedItems: data.blockedItems,
+      productsList: data.productsList,
     };
 
     this.getDay = this.getDay.bind(this);
@@ -47,6 +48,7 @@ class MenuList extends React.Component {
           caloriesCount: data.caloriesCount,
           timeCount: data.timeCount,
           blockedItems: data.blockedItems,
+          productsList: data.productsList,
         });
       }).catch(err => console.log(err));
     }
@@ -129,8 +131,9 @@ class MenuList extends React.Component {
     });
 
     axios.post(Const.scraperHost, { products: items })
-      .then(resp => console.log(resp.data))
+      .then(resp => this.setState({productsList:resp.data}))
       .catch(err => console.log(err));
+
   }
 
   getDay() {
@@ -157,9 +160,12 @@ class MenuList extends React.Component {
     return (
       <div className="menu-day">
         <div className="row">
-          <div className="col col-md-10">
+          <div className="col col-md-6">
             <h2 className="menu-day-title">{ days[day.dayCount - 1] + ' diena' }</h2>
             <h3 className="menu-day-calories">{ calories } kalorijos</h3>
+          </div>
+          <div className="col col-md-4">
+            <ShoppingBag cart={this.state.productsList} />
           </div>
           <div className="col col-md-2" onClick={() => this.refreshDay()} >
             <i className="material-icons menu-drag-icon">refresh</i>
@@ -191,7 +197,6 @@ class MenuList extends React.Component {
                 </div>
               </div>
             </div>
-
           ))}
         </div>
       </div>
@@ -213,11 +218,12 @@ class MenuList extends React.Component {
     return (
       <div className="menuContainer">
         {this.getDaysList()}
-          <div className="row">
-            <div className="col col-sm-12">
-              { this.getDay() }
-            </div>
+        <div className="row">
+          <div className="col col-sm-12">
+            { this.getDay() }
+            { this.getFoodList() }
           </div>
+        </div>
       </div>
     );
   }
