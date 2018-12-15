@@ -1,12 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './Container.css';
-import data from './data.json';
 import $ from 'jquery';
 import KMI from './KMI';
 import Blocker from './Blocker';
 import DragDrop from './MenuList';
-import ShoppingBag from './ShoppingBag';
 
 class CreateProfile extends React.Component {
   constructor(props) {
@@ -24,7 +22,7 @@ class CreateProfile extends React.Component {
       caloriesCount: res.caloriesCount,
       timeCount: res.timeCount,
       blockedItems: res.blockedItems,
-      productsList: res.productsList
+      productsList: res.productsList,
     });
   }
 

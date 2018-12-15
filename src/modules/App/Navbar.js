@@ -21,29 +21,6 @@ class Navbar extends React.Component {
               <a href="/">PAGRINDINIS</a>
             </li>
             <li>
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">PATIEKALAI</a>
-              <ul className="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                  <a href="#">Veganiški</a>
-                </li>
-                <li>
-                  <a href="#">Saldūs</a>
-                </li>
-                <li>
-                  <a href="#">Gurmaniški</a>
-                </li>
-                <li>
-                  <a href="#">Mėsos mylėtojai</a>
-                </li>
-                <li>
-                  <a href="#">Vegetariški</a>
-                </li>
-                <li>
-                  <a href="#">Užkandžiai</a>
-                </li>
-              </ul>
-            </li>
-            <li>
               <a href="/recipes">RECEPTAI</a>
             </li>
             <li>
@@ -55,7 +32,7 @@ class Navbar extends React.Component {
               <a href="#" className="navLogin">PRISIJUNGTI</a>
             </li>
             <li>
-              <a href="/createProfile" className="navRegister">REGISTRUOTIS</a>
+              <a href="#" className="navRegister">REGISTRUOTIS</a>
             </li>
           </ul>
         </nav>
