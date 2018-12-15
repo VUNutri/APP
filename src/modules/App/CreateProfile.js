@@ -9,20 +9,40 @@ import DragDrop from './MenuList';
 class CreateProfile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: [], selectedDay: 0, daysCount: 7, mealsCount: 4, caloriesCount: 3500, timeCount: 40, blockedItems: [], productsList: [] };
-    this.handler = this.handler.bind(this);
+    this.state = {
+      items: [],
+      selectedDay: 0,
+      daysCount: 5,
+      mealsCount: 3,
+      caloriesCount: 3500,
+      timeCount: 40,
+      blockedItems: [],
+      productsList: [],
+    };
+    this.menuHandler = this.menuHandler.bind(this);
+    this.kmiHandler = this.kmiHandler.bind(this);
+    this.blockerHandler = this.blockerHandler.bind(this);
   }
 
-  handler(res) {
+  menuHandler(res) {
     this.setState({
       items: res.items,
       selectedDay: res.selectedDay,
+    });
+  }
+
+  blockerHandler(res) {
+    this.setState({
+      blockedItems: res.items,
+    });
+    console.log(this.state.blockedItems, res.items);
+  }
+
+  kmiHandler(res) {
+    this.setState({
       daysCount: res.daysCount,
       mealsCount: res.mealsCount,
       caloriesCount: res.caloriesCount,
-      timeCount: res.timeCount,
-      blockedItems: res.blockedItems,
-      productsList: res.productsList,
     });
   }
 
@@ -52,7 +72,7 @@ class CreateProfile extends React.Component {
             <div className="row">
               <div className="col col-md-8">
                 <DragDrop
-                  handler={this.handler}
+                  handler={this.menuHandler}
                   items={this.state.items}
                   daysCount={this.state.daysCount}
                   mealsCount={this.state.mealsCount}
@@ -64,9 +84,17 @@ class CreateProfile extends React.Component {
                 />
               </div>
               <div className="col col-sm-12 col-md-4">
-                <KMI />
+                <KMI
+                  handler={this.kmiHandler}
+                  daysCount={this.state.daysCount}
+                  mealsCount={this.state.mealsCount}
+                  caloriesCount={this.state.caloriesCount}
+                />
                 <br />
-                <Blocker />
+                <Blocker
+                  handler={this.blockerHandler}
+                  blockedItems={this.state.blockedItems}
+                />
               </div>
             </div>
           </div>

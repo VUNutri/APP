@@ -41,21 +41,46 @@ class MenuList extends React.Component {
         time: data.timeCount,
         blockedIngredients: data.blockedItems,
       }).then((res) => {
+        this.setState({
+          items: res.data,
+        });
         propsData.handler({
           items: res.data,
           selectedDay: data.selectedDay,
-          daysCount: data.daysCount,
-          mealsCount: data.mealsCount,
-          caloriesCount: data.caloriesCount,
-          timeCount: data.timeCount,
-          blockedItems: data.blockedItems,
-          productsList: data.productsList,
         });
       }).catch(err => console.log(err));
     }
   }
 
   componentWillReceiveProps(props) {
+    const data = this.state;
+    const propsData = this.props;
+
+    if (
+      propsData.daysCount !== props.daysCount
+      || propsData.mealsCount !== props.mealsCount
+      || propsData.timeCount !== props.timeCount
+      || propsData.caloriesCount !== props.caloriesCount
+      || propsData.blockedItems !== props.blockedItems
+    ) {
+      console.log('aap', props.blockedItems);
+      axios.post(`${Const.apiHost}menu/getMenu`, {
+        days: props.daysCount,
+        meals: props.mealsCount,
+        calories: props.caloriesCount,
+        time: props.timeCount,
+        blockedIngredients: props.blockedItems,
+      }).then((res) => {
+        this.setState({
+          items: res.data,
+        });
+        propsData.handler({
+          items: res.data,
+          selectedDay: data.selectedDay,
+        });
+      }).catch(err => console.log(err));
+    }
+
     this.setState({
       items: props.items,
       selectedDay: props.selectedDay,
@@ -77,20 +102,6 @@ class MenuList extends React.Component {
     );
   }
 
-  refreshMeal(index, meal) {
-    const self = this;
-    axios.post(`${Const.apiHost}menu/getDayOneMenu`, {
-      category: meal.category,
-      calories: this.state.caloriesCount,
-      time: this.state.timeCount,
-      blockedIngredients: this.state.blockedItems
-    }).then( (resp) => {
-      const arr = self.state.items;
-      arr[self.state.selectedDay].meals[index] = resp.data;
-      self.setState({ items: arr });
-    }).catch( err => console.log(err));
-  }
-
   renderSwitch(param) {
     switch(param) {
       case 1:
@@ -102,22 +113,6 @@ class MenuList extends React.Component {
       default:
         return '';
     }
-  }
-
-  refreshDay() {
-    const self = this;
-    axios.post(`${Const.apiHost}menu/getDailyMenu`, {
-      dayCount: this.state.selectedDay + 1,
-      meals: this.state.mealsCount,
-      calories: this.state.caloriesCount,
-      time: this.state.timeCount,
-      blockedIngredients: this.state.blockedItems
-    }).then( (resp) => {
-      const arr = self.state.items;
-      arr[self.state.selectedDay] = resp.data;
-      self.setState({ items: arr });
-    }).catch( err => console.log(err));
-
   }
 
   getFoodList() {
@@ -313,6 +308,36 @@ class MenuList extends React.Component {
         </div>
       </div>
     );
+  }
+
+  refreshDay() {
+    const self = this;
+    axios.post(`${Const.apiHost}menu/getDailyMenu`, {
+      dayCount: this.state.selectedDay + 1,
+      meals: this.state.mealsCount,
+      calories: this.state.caloriesCount,
+      time: this.state.timeCount,
+      blockedIngredients: this.state.blockedItems
+    }).then( (resp) => {
+      const arr = self.state.items;
+      arr[self.state.selectedDay] = resp.data;
+      self.setState({ items: arr });
+    }).catch( err => console.log(err));
+
+  }
+
+  refreshMeal(index, meal) {
+    const self = this;
+    axios.post(`${Const.apiHost}menu/getDayOneMenu`, {
+      category: meal.category,
+      calories: this.state.caloriesCount,
+      time: this.state.timeCount,
+      blockedIngredients: this.state.blockedItems
+    }).then( (resp) => {
+      const arr = self.state.items;
+      arr[self.state.selectedDay].meals[index] = resp.data;
+      self.setState({ items: arr });
+    }).catch( err => console.log(err));
   }
 
   changeDayShow(index) {

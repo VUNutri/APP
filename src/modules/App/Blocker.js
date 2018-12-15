@@ -1,21 +1,30 @@
 import React from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
+import axios from 'axios';
 import './Blocker.css';
+import Const from '../Const/Const';
 
 class Blocker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       tags: [],
-      suggestions: [
-        { id: '1', text: 'pienas' },
-        { id: '2', text: 'svogūnai' },
-        { id: '3', text: 'pomidorai' },
-        { id: '4', text: 'bulvės' },
-     ]
+      suggestions: [],
+      blocks: this.props.blockedItems,
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
+  }
+
+  componentWillMount() {
+    const resp = [];
+    axios.get(`${Const.apiHost}products/getAll`)
+      .then((res) => {
+        res.data.map((r) => {
+          resp.push({ id: r.id.toString(), text: r.title });
+        });
+        this.setState({ suggestions: resp });
+      });
   }
 
   handleDelete(i) {
@@ -23,12 +32,34 @@ class Blocker extends React.Component {
     this.setState({
       tags: tags.filter((tag, index) => index !== i),
     });
-  }
- 
-  handleAddition(tag) {
-    this.setState(state => ({ tags: [...state.tags, tag] }));    
+    const arr = [];
+    this.state.tags.map((t) => {
+      arr.push(parseInt(t.id));
+    });
+    this.props.handler({
+      items: arr,
+    });
   }
 
+  handleAddition(tag) {
+    let is = false;
+    for (let i = 0; i < this.state.suggestions.length; i += 1) {
+      if (this.state.suggestions[i].text === tag.text) {
+        is = true;
+        break;
+      }
+    }
+    if (is) {
+      this.setState(state => ({ tags: [...state.tags, tag] }));
+      const arr = [];
+      this.state.tags.map((t) => {
+        arr.push(parseInt(t.id));
+      });
+      this.props.handler({
+        items: arr,
+      });
+    }
+  }
 
   render() {
     const { tags, suggestions } = this.state;
@@ -41,6 +72,7 @@ class Blocker extends React.Component {
             handleDelete={this.handleDelete}
             handleAddition={this.handleAddition}
             suggestions={suggestions}
+            minQueryLength={1}
             placeholder=""
           />
         </div>
