@@ -2,6 +2,7 @@ import React from 'react';
 import './Container.css';
 import './App.css';
 import $ from 'jquery';
+import CartProduct from './CartProduct';
 
 class ShoppingBag extends React.Component {
   constructor(props) {
@@ -10,9 +11,10 @@ class ShoppingBag extends React.Component {
   }
 
   render() {
+    const CartList = this.props.cart.map(product => <CartProduct {...product} />);
     return (
       <div>
-        <button type="button" id="modalOpen" className="btn btn-primary nutriColor button1 modalOpen" data-toggle="modal" data-target="#shoppingModal">
+        <button type="button" id="modalOpen" style={{margin:'1.2rem'}} className="btn btn-primary nutriColor button1 modalOpen" data-toggle="modal" data-target="#shoppingModal">
           <i className="material-icons">
           shopping_cart
           </i>
@@ -28,11 +30,12 @@ class ShoppingBag extends React.Component {
                 </button>
               </div>
               <div className="modal-body">
-                ...
+                <ul className="list-group">
+                  {CartList}
+                </ul>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" className="btn btn-primary">Save changes</button>
+                <button type="button" className="btn btn-primary nutriColor">Generuoti PDF</button>
               </div>
             </div>
           </div>

@@ -1,12 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import './KMI.css';
 
 class KMI extends React.Component {
-
   constructor(props) {
     super(props);
-    this.state = { weight: null, height: null, age: null, gender: null, active: 'passive', calories: 2000, daysNumber: 1, mealsNumber: 1 };
+
+    this.state = { weight: 69, height: 189, age: 45, gender: 'male', active: 'passive', calories: this.props.caloriesCount, daysNumber: this.props.daysCount, mealsNumber: this.props.mealsCount };
     this.heightChange = this.heightChange.bind(this);
     this.weightChange = this.weightChange.bind(this);
     this.ageChange = this.ageChange.bind(this);  
@@ -17,7 +16,7 @@ class KMI extends React.Component {
     this.KMI = this.KMI.bind(this);
     this.caloriesCalculator = this.caloriesCalculator.bind(this);
     this.submit = this.submit.bind(this);
-  }  
+  }
 
   heightChange(e) {
     this.setState({ height: e.target.value });
@@ -44,13 +43,24 @@ class KMI extends React.Component {
   }
 
   daysNumberChange(e) {
-    this.setState({ daysNumber: e.target.value });
-    e.preventDefault();
+    const num = parseInt(e.target.value);
+    this.setState({ daysNumber: num });
+    this.props.handler({
+      daysCount: num,
+      mealsCount: this.state.mealsNumber,
+      caloriesCount: this.state.calories,
+    });
   }
 
   mealsNumberChange(e) {
-    this.setState({ mealsNumber: e.target.value });
+    const num = parseInt(e.target.value);
+    this.setState({ mealsNumber: num });
     e.preventDefault();
+    this.props.handler({
+      daysCount: this.state.daysNumber,
+      mealsCount: num,
+      caloriesCount: this.state.calories,
+    });
   }
   
 
@@ -62,55 +72,62 @@ class KMI extends React.Component {
   caloriesCalculator() {
     const maleBMR = (13.397 * this.state.weight) + (4.799 * this.state.height) - (5.677 * this.state.age) + 88.362;
     const femaleBMR =  (9.247 * this.state.weight) + (3.098 * this.state.height) - (4.330 * this.state.age) + 447.593;
+    let calories;
     if (this.state.gender === 'male') { 
       if (this.state.active === 'passive') {
-        const calories = maleBMR * 1.2;
+        calories = maleBMR * 1.2;
         this.setState({ calories: Math.round(calories) });
       }
       else if (this.state.active === 'mild') {
-        const calories = maleBMR * 1.375;
+        calories = maleBMR * 1.375;
         this.setState({ calories: Math.round(calories) });
       }
       else if (this.state.active === 'moderate') {
-        const calories = maleBMR * 1.55;
+        calories = maleBMR * 1.55;
         this.setState({ calories: Math.round(calories) });
       }
       else if (this.state.active === 'heavy') {
-        const calories = maleBMR * 1.7;
+        calories = maleBMR * 1.7;
         this.setState({ calories: Math.round(calories) });
       }
       else if (this.state.active === 'extreme') {
-        const calories = maleBMR * 1.9;
+        calories = maleBMR * 1.9;
         this.setState({ calories: Math.round(calories) });
       }
     }
     else if (this.state.gender === 'female') { 
       if (this.state.active === 'passive') {
-        const calories = femaleBMR * 1.2;
+        calories = femaleBMR * 1.2;
         this.setState({ calories: Math.round(calories) });
       }
       else if (this.state.active === 'mild') {
-        const calories = femaleBMR * 1.375;
+        calories = femaleBMR * 1.375;
         this.setState({ calories: Math.round(calories) });
       }
       else if (this.state.active === 'moderate') {
-        const calories = femaleBMR * 1.55;
+        calories = femaleBMR * 1.55;
         this.setState({ calories: Math.round(calories) });
       }
       else if (this.state.active === 'heavy') {
-        const calories = femaleBMR * 1.7;
+        calories = femaleBMR * 1.7;
         this.setState({ calories: Math.round(calories) });
       }
       else if (this.state.active === 'extreme') {
-        const calories = femaleBMR * 1.9;
+        calories = femaleBMR * 1.9;
         this.setState({ calories: Math.round(calories) });
       }
-  }
+    }
+    return calories;
   }
 
   submit(e) {
     e.preventDefault();
-    this.caloriesCalculator();
+    const cals = Math.round(this.caloriesCalculator());
+    this.props.handler({
+      daysCount: this.state.daysNumber,
+      mealsCount: this.state.mealsNumber,
+      caloriesCount: cals,
+    });
   }
 
   render() {
