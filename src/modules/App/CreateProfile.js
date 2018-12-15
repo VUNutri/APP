@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './Container.css';
-import data from './data.json';
 import $ from 'jquery';
 import KMI from './KMI';
 import Blocker from './Blocker';
@@ -12,13 +11,19 @@ class CreateProfile extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { items: [], selectedDay: 0, daysCount: 7, mealsCount: 4, caloriesCount: 3500, timeCount: 40, blockedItems: [] };
+    this.state = {
+      items: [],
+      selectedDay: 0,
+      daysCount: 7,
+      mealsCount: 4,
+      caloriesCount: 3500,
+      timeCount: 40,
+      blockedItems: []
+    };
     this.handler = this.handler.bind(this);
   }
 
   handler(res) {
-    console.log('aa');
-    console.log(res);
     this.setState({
       items: res.items,
       selectedDay: res.selectedDay,
