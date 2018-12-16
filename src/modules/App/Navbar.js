@@ -27,6 +27,7 @@ class Navbar extends React.Component {
               <Link to="/about">APIE NUTRI</Link>
             </li>
           </ul>
+<<<<<<< HEAD
           <ul className="list-unstyled CTAs">
             <li>
           <SignIn />
@@ -35,6 +36,8 @@ class Navbar extends React.Component {
               <a href="#" className="navRegister">REGISTRUOTIS</a>
             </li>
           </ul>
+=======
+>>>>>>> f1b775c238807f7ff00a374df69e4dcdf1c7d98b
         </nav>
         
     );
