@@ -26,14 +26,6 @@ class Navbar extends React.Component {
               <Link to="/about">APIE NUTRI</Link>
             </li>
           </ul>
-          <ul className="list-unstyled CTAs">
-            <li>
-              <a href="#" className="navLogin">PRISIJUNGTI</a>
-            </li>
-            <li>
-              <a href="#" className="navRegister">REGISTRUOTIS</a>
-            </li>
-          </ul>
         </nav>
     );
   }
