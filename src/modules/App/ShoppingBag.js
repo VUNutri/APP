@@ -12,6 +12,12 @@ class ShoppingBag extends React.Component {
     this.getFoodList = this.getFoodList.bind(this);
   }
 
+  componentWillReceiveProps(props) {
+    if (this.props.items !== props.items) {
+      this.setState({ items: props.items });
+    }
+  }
+
   getFoodList() {
     const items = [];
 
