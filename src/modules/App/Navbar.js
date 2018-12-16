@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../img/logo.png';
 
@@ -11,20 +11,19 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <Router>
         <nav id="sidebar">
           <div className="sidebar-header">
             <img alt="Nutri logo" src={logo} className="navLogo" />
           </div>
           <ul className="list-unstyled components">
             <li>
-              <a href="/">PAGRINDINIS</a>
+              <Link to="/">PAGRINDINIS</Link>
             </li>
             <li>
-              <a href="/recipes">RECEPTAI</a>
+              <Link to="/recipes">RECEPTAI</Link>
             </li>
             <li>
-              <a href="/about">APIE NUTRI</a>
+              <Link to="/about">APIE NUTRI</Link>
             </li>
           </ul>
           <ul className="list-unstyled CTAs">
@@ -36,7 +35,7 @@ class Navbar extends React.Component {
             </li>
           </ul>
         </nav>
-      </Router>);
+    );
   }
 }
 
