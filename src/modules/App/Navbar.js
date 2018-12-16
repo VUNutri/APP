@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../img/logo.png';
+import SignIn from './SignIn';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -28,13 +29,14 @@ class Navbar extends React.Component {
           </ul>
           <ul className="list-unstyled CTAs">
             <li>
-              <a href="#" className="navLogin">PRISIJUNGTI</a>
+          <SignIn />
             </li>
             <li>
               <a href="#" className="navRegister">REGISTRUOTIS</a>
             </li>
           </ul>
         </nav>
+        
     );
   }
 }
