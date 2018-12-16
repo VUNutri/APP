@@ -62,7 +62,6 @@ class MenuList extends React.Component {
       || propsData.caloriesCount !== props.caloriesCount
       || propsData.blockedItems !== props.blockedItems
     ) {
-      console.log('aap', props.blockedItems);
       axios.post(`${Const.apiHost}menu/getMenu`, {
         days: props.daysCount,
         meals: props.mealsCount,
@@ -128,7 +127,6 @@ class MenuList extends React.Component {
     axios.post(Const.scraperHost, { products: items })
       .then(resp => this.setState({productsList:resp.data}))
       .catch(err => console.log(err));
-
   }
 
   getDay() {
