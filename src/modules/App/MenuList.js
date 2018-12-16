@@ -3,6 +3,7 @@ import axios from 'axios';
 import './MenuList.css';
 import Const from '../Const/Const';
 import ShoppingBag from './ShoppingBag';
+import ProductDiv from './ProductDiv';
 
 class MenuList extends React.Component {
   constructor(props) {
@@ -100,6 +101,19 @@ class MenuList extends React.Component {
     );
   }
 
+  renderSwitch(param) {
+    switch(param) {
+      case 1:
+        return 'Pusryčiai';
+      case 2:
+        return 'Pietūs';
+      case 3:
+        return 'Užkandis/desertas';
+      default:
+        return '';
+    }
+  }
+
   getFoodList() {
     const items = [];
 
@@ -149,6 +163,7 @@ class MenuList extends React.Component {
     for (let i = 0; i < day.meals.length; i += 1) {
       calories += day.meals[i].calories;
     }
+    
 
     return (
       <div className="menu-day">
@@ -158,7 +173,7 @@ class MenuList extends React.Component {
             <h3 className="menu-day-calories">{ calories } kalorijos</h3>
           </div>
           <div className="col col-md-4">
-            <ShoppingBag cart={this.state.productsList} />
+            <ShoppingBag clicked={this.getFoodList()} cart={this.state.productsList} />
           </div>
           <div className="col col-md-2" onClick={() => this.refreshDay()} >
             <i className="material-icons menu-drag-icon">refresh</i>
@@ -168,7 +183,10 @@ class MenuList extends React.Component {
           { day.meals.map((meal, index) => (
             <div className="menu-day-meals-meal">
               <div className="row">
-                <div className="col col-md-4 col-sm-12">
+                <div className="col col-md-1 col-sm-1">
+                  <i className="material-icons menu-drag-icon" data-toggle="modal" data-target={'#mealModal' + meal.id}>info</i>
+                </div>
+                <div className="col col-md-3 col-sm-12">
                   <img alt="Meal" className="menu-day-meals-meal-img" src={ meal.image } />
                 </div>
                 <div className="col col-md-6 col-sm-12">
@@ -187,6 +205,100 @@ class MenuList extends React.Component {
                 </div>
                 <div className="col col-md-1 col-sm-1" index={index} onClick={() => this.deleteItem(index)}>
                   <i className="material-icons menu-drag-icon">delete</i>
+                </div>
+              </div>
+              <div className="modal fade" id={"mealModal" + meal.id} tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                  <div className="meal-modal modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="exampleModalCenterTitle">Apie patiekalą</h5>
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div className="modal-body" style={{padding: '0 1rem'}}>
+                      <div className="row">
+                        <img className="meal-img" src={meal.image} alt={meal.title} />
+                      </div>
+                      <div className="row">
+                        <div className="col col-sm-12">
+                          <h3 className="toUpper">{meal.title}</h3>
+                        </div>
+                      </div>
+                      <br />
+                      <div className="row">
+                        <div className="col col-md-4">
+                          Tipas:
+                        </div>
+                        <div className="col col-md-8">
+                          <span className="badge badge-primary badge nutriColor">{this.renderSwitch(meal.category)}</span>
+                        </div>
+                      </div>
+                      <br />
+                      <div className="row">
+                        <div className="col col-md-4">
+                          Gaminimo laikas:
+                        </div>
+                        <div className="col col-md-8">
+                          <span className="badge badge-primary badge nutriColor">{meal.time}min.</span>
+                        </div>
+                      </div>
+                      <br />
+                      <div className="row">
+                        <div className="col col-md-12">
+                          <ul className="list-group">
+                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                              Kalorijos:
+                              <span className="badge badge-primary badge nutriColor">{meal.calories} cal</span>
+                            </li>
+                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                              Baltymai:
+                              <span className="badge badge-primary badge nutriColor">{meal.proteins}g</span>
+                            </li>
+                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                              Angliavandeniai:
+                              <span className="badge badge-primary badge nutriColor">{meal.carbs}g</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <br />
+                      <div className="row">
+                        <div className="col col-sm-12">
+                          <div className="accordion" id="accordionExample">
+                            <div className="card" id="product-card">
+                              <div className="card-header" id="headingOne">
+                                <h5 className="mb-0">
+                                  <button className="btn btn-primary nutriColor" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Produktai
+                                  </button>
+                                </h5>
+                              </div>
+
+                              <div id="collapseOne" className="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div className="card-body">
+                                  <ul className="list-group">
+                                    {meal.products.map(list => <ProductDiv {...list} />)}
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <br />
+                      <div className="row">
+                        <div className="col col-md-12">
+                          <h4>Gaminimo instrukcijos:</h4>
+                        </div>
+                        <div className="col col-md-12">
+                          {meal.instructions}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="modal-footer">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -244,7 +356,6 @@ class MenuList extends React.Component {
         <div className="row">
           <div className="col col-sm-12">
             { this.getDay() }
-            { this.getFoodList() }
           </div>
         </div>
       </div>

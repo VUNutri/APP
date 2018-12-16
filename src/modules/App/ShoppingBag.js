@@ -14,10 +14,7 @@ class ShoppingBag extends React.Component {
     const CartList = this.props.cart.map(product => <CartProduct {...product} />);
     return (
       <div>
-        <button type="button" id="modalOpen" style={{margin:'1.2rem'}} className="btn btn-primary nutriColor button1 modalOpen" data-toggle="modal" data-target="#shoppingModal">
-          <i className="material-icons">
-          shopping_cart
-          </i>
+        <button type="button" id="modalOpen" onClick={this.props.clicked} style={{margin:'1.2rem'}} className="btn btn-primary nutriColor button1 modalOpen" data-toggle="modal" data-target="#shoppingModal">
           Produktų krepšelis
         </button>
         <div className="modal fade" id="shoppingModal" tabIndex="-1" role="dialog" aria-labelledby="shoppingModalLabel" aria-hidden="true">
