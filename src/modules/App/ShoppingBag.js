@@ -4,11 +4,13 @@ import './App.css';
 import axios from 'axios';
 import Const from '../Const/Const';
 import CartProduct from './CartProduct';
+import PDFGen from './PDFGen';
+import preloader from '../img/preloader.gif';
 
 class ShoppingBag extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { cart: [], items: this.props.items };
+    this.state = { cart: [], items: this.props.items, cartPrice: 0 };
     this.getFoodList = this.getFoodList.bind(this);
   }
 
@@ -52,10 +54,17 @@ class ShoppingBag extends React.Component {
 
   render() {
     let CartList;
+    let PriceTag;
     if (this.state.cart.length < 1) {
-      CartList = (<div>Lukterkit, apsipirkinėjame Barboroje :)</div>);
+      CartList = (<div><img src={preloader} alt="Krauname..." /></div>);
+      PriceTag = (<div>Kaina: <span className="badge badge-secondary">-</span></div>);
     } else {
       CartList = this.state.cart.map(product => <CartProduct {...product} />);
+      for (let i=0;i<this.state.cart.length;i++) {
+        if(this.state.cart[i])
+          this.state.cartPrice += this.state.cart[i].price;
+      }
+      PriceTag = (<div>Kaina: <span className="badge badge-secondary">€ {this.state.cartPrice.toFixed(2)}</span></div>);
     }
     return (
       <div>
@@ -77,7 +86,10 @@ class ShoppingBag extends React.Component {
                 </ul>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-primary nutriColor">Generuoti PDF</button>
+                {PriceTag}
+                <div>
+                  <PDFGen />
+                </div>
               </div>
             </div>
           </div>

@@ -22,7 +22,7 @@ const CartProduct = (props) => {
                   </p>
                   <p className="menu-day-meals-meal-time">
                     <i className="material-icons menu-day-time">euro_symbol</i>
-                    { props.price }
+                    { props.price.toFixed(2) }
                   </p>
                 </div>
               </div>
